@@ -8,6 +8,7 @@ const http = require('http').Server(app);
 
 interface player {
   name: string;
+  hunter: boolean;
   x: number;
   y: number;
 }
@@ -39,6 +40,11 @@ socketIO.on('connection', (socket) => {
     players.push(payload);
 
     socketIO.emit('updatePlayer', payload);
+  });
+
+  socket.on('deletePlayer', (payload) => {
+    socketIO.emit('deletePlayer', { name: name, x: 0, y: 0 });
+    players = players.filter((player) => player.name != name);
   });
 
   socket.on('disconnect', () => {
