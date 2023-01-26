@@ -16,7 +16,7 @@ let players = [] as player[];
 
 const socketIO = require('socket.io')(http, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: '*',
   },
 });
 
