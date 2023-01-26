@@ -12,6 +12,8 @@ interface player {
   y: number;
 }
 
+//Hej
+
 let players = [] as player[];
 
 const socketIO = require('socket.io')(http, {
